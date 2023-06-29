@@ -24,7 +24,7 @@ export async function getServerSideProps() {
     try {
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
-        myHeaders.append("AccountKey", "fmvxpJuBSEqtzoDSPGu/uw==");
+        myHeaders.append("AccountKey", process.env.API_KEY);
 
         var requestOptions = {
             method: "GET",
