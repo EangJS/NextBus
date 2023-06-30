@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -10,6 +9,11 @@ export default function Home() {
                     <p>Bus Timings</p>
                 </div>
             </a>
+            <form action="/BusTiming" method={"get"}>
+                <label htmlFor="BusStop">Bus Stop: </label>
+                <input type="text" id="BusStop" name="BusStop"/>
+                <button className={"btn"}>Submit</button>
+            </form>
         </main>
     )
 }

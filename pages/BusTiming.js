@@ -20,7 +20,8 @@ const BusTiming = ({data}) => {
     );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+    const {BusStop} = context.query;
     try {
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
@@ -33,7 +34,7 @@ export async function getServerSideProps() {
         };
         var data;
         await fetch(
-            "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=54321",
+            `http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=${BusStop}`,
             requestOptions
         )
             .then((response) => response.json())
