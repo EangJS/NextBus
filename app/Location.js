@@ -1,11 +1,32 @@
 "use client";
 
-export default function Location() {
-    global.navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-    });
+import {useEffect, useState} from 'react'
+
+const Location = () => {
+    var lat;
+    var long;
+
+    useEffect(() => {
+        if ('geolocation' in navigator) {
+            // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
+            navigator.geolocation.getCurrentPosition(({coords}) => {
+                const {latitude, longitude} = coords;
+                lat = latitude;
+                long = longitude;
+
+            })
+        } else {
+            lat = 10;
+            long = 10;
+        }
+        console.log(lat);
+    }, []);
+
     return (
-        <div></div>
+        <div>
+            {lat}
+        </div>
     );
-}
+};
+
+export default Location;

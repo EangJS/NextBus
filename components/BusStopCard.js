@@ -1,19 +1,21 @@
 import styles from "@/app/page.module.css";
 
-export default function busStopCard(busStop) {
+export default function busStopCard(prop) {
+    console.log(prop);
+    const busStop = prop.prop;
     return (
         <div className={styles.card}
              style={{
                  backgroundColor: '#0F3460', width: '300px', justifyContent: "center"
              }}>
             <div>
-                {busStop.busStop.RoadName}
+                {busStop.RoadName}
             </div>
             <div>
-                {busStop.busStop.Description}
+                {busStop.Description}
             </div>
             <div>
-                {busStop.busStop.BusStopCode}
+                {busStop.BusStopCode}
             </div>
         </div>
     )

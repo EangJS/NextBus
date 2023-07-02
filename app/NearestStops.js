@@ -34,9 +34,10 @@ function sortStops(toSort, querylat, querylong) {
 
 function getNearestStops(sortedStops) {
     var rows = [];
+
     for (let i = 0; i < 10; i++) {
         rows.push(
-            <BusStopCard busStop={sortedStops[i]}></BusStopCard>
+            <BusStopCard key={i} prop={sortedStops[i]}></BusStopCard>
         )
     }
     return rows;
