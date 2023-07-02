@@ -1,3 +1,4 @@
+"use client";
 import React, {useEffect, useState} from 'react';
 
 const TimeDifference = ({givenTime}) => {
@@ -19,8 +20,12 @@ const TimeDifference = ({givenTime}) => {
                     1000 * 60
                 )
             );
+            var formattedTimeDifference = `${minutes} mins`;
 
-            const formattedTimeDifference = `${minutes}`;
+            if (minutes <= 0) {
+                formattedTimeDifference = "Arriving";
+            }
+
             setTimeDifference(formattedTimeDifference);
         };
 
@@ -28,7 +33,10 @@ const TimeDifference = ({givenTime}) => {
     }, [givenTime]);
 
     return (
-        <p>Time to arrival: {timeDifference} mins</p>
+        <>
+            {timeDifference}
+        </>
+
     );
 };
 

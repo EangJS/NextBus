@@ -1,31 +1,15 @@
 import React from "react";
-import BusData from "@/pages/BusData";
+import BusData from "@/app/Bus/BusData";
+import styles from '@/app/page.module.css'
+import BusStop from "@/app/Bus/BusStop";
 
-const BusTiming = ({data}) => {
-
-    var services = data.Services;
-    return (
-        <div>
-            <ul>
-                {services.map((item, index) => (
-
-                    <BusData key={index}
-                             BusNo={item.ServiceNo}
-                             Duration={item.NextBus.EstimatedArrival}>
-                    </BusData>
-
-                ))}
-            </ul>
-        </div>
-    );
-};
-
-export async function getServerSideProps(context) {
-    const {BusStop} = context.query;
+const getData = async (BusStop) => {
     try {
+
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
         myHeaders.append("AccountKey", process.env.API_KEY);
+        myHeaders.append('Cache-Control', 'no-store');
 
         var requestOptions = {
             method: "GET",
@@ -42,11 +26,8 @@ export async function getServerSideProps(context) {
                 data = result;
             })
             .catch((error) => console.log("error", error));
-        return {
-            props: {
-                data: data,
-            },
-        };
+        return data;
+
     } catch (error) {
         console.error("Error:", error);
         return {
@@ -55,6 +36,26 @@ export async function getServerSideProps(context) {
             },
         };
     }
+
+};
+
+export default async function Page({searchParams}) {
+    const data = await getData(searchParams.BusStop);
+    var services = data.Services;
+    return (
+        <div className={styles.main}>
+            <BusStop busStop={searchParams.BusStop}></BusStop>
+            <div style={{display: "flex", justifyContent: "center", flexWrap: "wrap"}}>
+                {services.map((item, index) => (
+
+                    <BusData key={index}
+                             Service={item}>
+                    </BusData>
+                ))}
+            </div>
+        </div>
+    );
+
 }
 
-export default BusTiming;
+export const revalidate = 15;
