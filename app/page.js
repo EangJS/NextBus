@@ -5,10 +5,10 @@ import Location from './Location'
 export default function Home() {
     return (
         <main className={styles.main} style={{gap: '20px'}}>
-            <Location></Location>
+
             <div className="bg-[#1A1A2E] rounded-2xl p-5">
                 <h2 className="text-3xl font-bold p-3">Nearest Stops</h2>
-                <NearestStops></NearestStops>
+                <Location></Location>
             </div>
             <div className="bg-[#1A1A2E] rounded-2xl p-5">
                 <h2 className="text-3xl font-bold p-3">Search</h2>

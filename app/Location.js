@@ -1,32 +1,54 @@
 "use client";
 
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import BusData from "@/app/Bus/BusData";
+import NearestStops from "@/app/NearestStops";
 
-const Location = () => {
-    var lat;
-    var long;
-
+export default function Location() {
+    const [location, setLocation] = useState({0: 0});
+    var BusStops;
     useEffect(() => {
         if ('geolocation' in navigator) {
             // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
             navigator.geolocation.getCurrentPosition(({coords}) => {
                 const {latitude, longitude} = coords;
-                lat = latitude;
-                long = longitude;
+                setLocation({latitude, longitude});
 
             })
         } else {
-            lat = 10;
-            long = 10;
+            setLocation({0: 0});
         }
-        console.log(lat);
-    }, []);
+    }, [location.latitude, location.longitude]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api/nearestStops', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'applicaiton/json',
+                    },
+                    body: JSON.stringify("{\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}"),
+                });
+                if (response.ok) {
+                    var data = await response.json();
+                    //console.log(data);
+                    return data;
+                } else {
+                    console.log('Error unable to fetch');
+                }
+            } catch (error) {
+                console.log('An error occurred:', error);
+            }
+        }
+        fetchData().then((value) => {
+            BusStops = value;
+        });
+    }, [BusStops, BusStops]);
 
     return (
-        <div>
-            {lat}
-        </div>
-    );
-};
+        <NearestStops data={BusStops}></NearestStops>
+    )
 
-export default Location;
+}
+

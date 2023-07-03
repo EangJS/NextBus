@@ -1,7 +1,6 @@
 import styles from "@/app/page.module.css";
 
 export default function busStopCard(prop) {
-    console.log(prop);
     const busStop = prop.prop;
     return (
         <div className={styles.card}
