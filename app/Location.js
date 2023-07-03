@@ -1,24 +1,23 @@
 "use client";
 
 import React, {useEffect, useState} from 'react'
-import BusData from "@/app/Bus/BusData";
-import NearestStops from "@/app/NearestStops";
+import BusStopCard from '@/components/BusStopCard'
 
 export default function Location() {
+    const [data, setData] = useState([]);
     const [location, setLocation] = useState({0: 0});
-    var BusStops;
     useEffect(() => {
         if ('geolocation' in navigator) {
             // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
             navigator.geolocation.getCurrentPosition(({coords}) => {
                 const {latitude, longitude} = coords;
                 setLocation({latitude, longitude});
-
             })
         } else {
-            setLocation({0: 0});
+            console.log("location not obtained");
+
         }
-    }, [location.latitude, location.longitude]);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,9 +30,9 @@ export default function Location() {
                     body: JSON.stringify("{\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}"),
                 });
                 if (response.ok) {
-                    var data = await response.json();
+                    var JSONdata = await response.json();
                     //console.log(data);
-                    return data;
+                    setData(JSONdata)
                 } else {
                     console.log('Error unable to fetch');
                 }
@@ -41,14 +40,15 @@ export default function Location() {
                 console.log('An error occurred:', error);
             }
         }
-        fetchData().then((value) => {
-            BusStops = value;
-        });
-    }, [BusStops, BusStops]);
+        fetchData();
+    }, [location]);
 
     return (
-        <NearestStops data={BusStops}></NearestStops>
-    )
-
+        <div className="flex flex-wrap gap-5 justify-center">
+            {data.map(item => (
+                <BusStopCard key={item.BusStopCode} prop={item}></BusStopCard>
+            ))}
+        </div>
+    );
 }
 
