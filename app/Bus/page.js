@@ -36,10 +36,10 @@ const getData = async (BusStop) => {
 
 export default async function Page({searchParams}) {
     return (
-        <div>
-            <h1> Hello World </h1>
-        </div>
-    )
+        <div className="pl-5 pt-2 mt-2">
+                <a className="bg-[#3a383e] col-[#cfbcf1] p-2 rounded-2xl" href="/">Back</a>
+            </div>
+    );
     /*
     const data = await getData(searchParams.BusStop);
     var services = await data.Services;
