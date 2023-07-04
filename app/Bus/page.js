@@ -34,7 +34,7 @@ const getData = async (BusStop) => {
 
 };
 
-export default function Page({searchParams}) {
+export default async function Page({searchParams}) {
     const data = await getData("54321");
     var services = data.Services.text();
     return (
