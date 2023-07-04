@@ -27,12 +27,11 @@ export default function Location() {
                     headers: {
                         'Content-Type': 'applicaiton/json',
                     },
-                    body: JSON.stringify("{\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}"),
+                    body: JSON.stringify({"latitude": location.latitude, "longitude": location.longitude}),
                 });
                 if (response.ok) {
                     var JSONdata = await response.json();
-                    //console.log(data);
-                    setData(JSONdata)
+                    setData(JSONdata);
                 } else {
                     console.log('Error unable to fetch');
                 }
@@ -40,7 +39,10 @@ export default function Location() {
                 console.log('An error occurred:', error);
             }
         }
-        fetchData();
+        if (location.latitude !== undefined) {
+            fetchData();
+        }
+        console.log(location);
     }, [location]);
 
     return (

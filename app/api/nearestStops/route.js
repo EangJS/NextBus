@@ -1,5 +1,6 @@
 import {NextResponse} from 'next/server'
 import data from "@/public/BusStops.json";
+import {console} from "next/dist/compiled/@edge-runtime/primitives";
 
 function calculateDistance(lat1, lon1, lat2, lon2, unit) {
     var radlat1 = Math.PI * lat1 / 180
@@ -44,8 +45,9 @@ function error() {
     console.log("Unable to retrieve your location");
 }
 
-export async function POST() {
-    var sortedStops = sortStops(data.value, 1.3838731457030924, 103.83989177965785);
+export async function POST(Request) {
+    const requestData = await Request.json();
+    var sortedStops = sortStops(data.value, Number(requestData.latitude), Number(requestData.longitude));
     var nearestStops = getNearestStops(sortedStops);
 
     return NextResponse.json(nearestStops);
