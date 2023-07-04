@@ -35,6 +35,12 @@ const getData = async (BusStop) => {
 };
 
 export default async function Page({searchParams}) {
+    return (
+        <div>
+            <h1> Hello World </h1>
+        </div>
+    )
+    /*
     const data = await getData(searchParams.BusStop);
     var services = await data.Services;
     console.log(services);
@@ -56,6 +62,7 @@ export default async function Page({searchParams}) {
             </div>
         </>
     );
+    */
 
 }
 
