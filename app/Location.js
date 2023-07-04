@@ -48,7 +48,7 @@ export default function Location() {
     return (
         <div className="flex flex-wrap gap-5 justify-center">
             {data.map(item => (
-                <a href={`/Bus?BusStop=${item.BusStopCode}`}>
+                <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
                     <BusStopCard key={item.BusStopCode} busStop={item}></BusStopCard>
                 </a>
 
