@@ -6,6 +6,14 @@
     min-height: 100vh;
 }
 
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0;
+}
+
 .description {
     display: inherit;
     justify-content: inherit;
@@ -47,10 +55,13 @@
 
 .card {
     padding: 1rem 1.2rem;
-    border-radius: var(--border-radius);
-    background: rgba(var(--card-rgb), 0);
-    border: 1px solid rgba(var(--card-border-rgb), 0);
-    transition: background 200ms, border 200ms;
+    border-radius: 18px;
+    background: #563587;
+    transition: background 200ms ease;
+}
+
+.card:hover {
+    background-color: #6750a4;
 }
 
 .card span {
@@ -70,6 +81,7 @@
     line-height: 1.5;
     max-width: 30ch;
 }
+
 
 .center {
     display: flex;
@@ -108,11 +120,6 @@
     position: relative;
 }
 
-.bus-card {
-    background-color: #395B64;
-    margin: 20px;
-    width: 180px;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

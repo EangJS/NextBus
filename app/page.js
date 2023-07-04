@@ -5,14 +5,13 @@ import Location from './Location'
 export default function Home() {
     return (
         <main className={styles.main} style={{gap: '20px'}}>
-
-            <div className="bg-[#1A1A2E] rounded-2xl p-5">
+            <div className="bg-[#262429] rounded-2xl p-5">
                 <h2 className="text-3xl font-bold p-3">Nearest Stops</h2>
                 <Location></Location>
             </div>
-            <div className="bg-[#1A1A2E] rounded-2xl p-5">
+            <div className="bg-[#262429] rounded-2xl p-5">
                 <h2 className="text-3xl font-bold p-3">Search</h2>
-                <div className={styles.center}>
+                <div className="center-flex">
                     <form action="/Bus" method={"get"}
                           className="flex flex-col justify-center gap-10">
                         <div>
@@ -23,12 +22,13 @@ export default function Home() {
                                 type="text" id="BusStop" name="BusStop" placeholder="Bus Stop"/>
                         </div>
                         <button
-                            className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md">Submit
+                            className="px-8 py-4 text-lg font-medium text-center text-white bg-[#4f378a] rounded-md
+                             transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500
+                              duration-200 ">Submit
                         </button>
                     </form>
                 </div>
             </div>
-
         </main>
     )
 }

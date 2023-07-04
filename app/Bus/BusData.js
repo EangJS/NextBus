@@ -9,7 +9,7 @@ export default function BusData({Service}) {
         busImage = "/double-bus.png";
     }
     return (
-        <div className={`${styles['card']} ${styles['bus-card']}`}>
+        <div className="w-[180px] p-5 rounded-2xl bg-[#3b3d8f]">
             <div>
                 {Service.ServiceNo} {Service.Operator}
             </div>

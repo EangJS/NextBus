@@ -1,12 +1,12 @@
 import styles from "@/app/page.module.css";
 
 export default function busStopCard(prop) {
-    const busStop = prop.prop;
+    const busStop = prop.busStop;
     return (
-        <div className={styles.card}
-             style={{
-                 backgroundColor: '#0F3460', width: '300px', justifyContent: "center"
-             }}>
+        <div
+            className="flex flex-col align-middle justify-center p-3 w-[180px] h-[120px] bg-[#563587]
+             rounded-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500
+              duration-200">
             <div>
                 {busStop.RoadName}
             </div>
