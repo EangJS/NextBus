@@ -51,11 +51,11 @@ export default async function Page({searchParams}) {
             <div className={styles.main}>
                 <BusStop busStop={searchParams.BusStop}></BusStop>
                 <div className="flex justify-center gap-5 p-5 flex-wrap bg-[#262429] rounded-2xl m-5">
-                    {services.length > 0 ? services.map((item, index) => (
+                    {services.map((item, index) => (
                         <BusData key={index}
                                  Service={item}>
                         </BusData>
-                    )) : <h4>No data</h4>}
+                    ))}
                 </div>
             </div>
         </>
