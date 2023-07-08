@@ -1,5 +1,4 @@
 import styles from './page.module.css'
-import NearestStops from './NearestStops'
 import Location from './Location'
 
 export default function Home() {

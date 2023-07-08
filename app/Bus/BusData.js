@@ -1,5 +1,4 @@
 import TimeDifference from "@/app/Bus/TimeDifference";
-import styles from "@/app/page.module.css";
 import React from "react";
 
 export default function BusData({Service}) {
