@@ -1,5 +1,5 @@
-import styles from './page.module.css'
-import Location from './Location'
+import styles from './page.module.css';
+import Location from './NearestStops/Location';
 
 export default function Home() {
     return (
@@ -8,6 +8,7 @@ export default function Home() {
                 <h2 className="text-3xl font-bold p-3">Nearest Stops</h2>
                 <Location></Location>
             </div>
+
             <div className="bg-[#262429] rounded-2xl p-5">
                 <h2 className="text-3xl font-bold p-3">Search</h2>
                 <div className="center-flex">
@@ -28,6 +29,7 @@ export default function Home() {
                     </form>
                 </div>
             </div>
+            <a href={"/Traffic"}>Traffic</a>
         </main>
     )
 }

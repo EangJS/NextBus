@@ -37,7 +37,6 @@ function GetWoodlandsDeparture(data) {
 
 function GetWoodlandsArrival(data) {
     const node = data[2].elements[2];
-    console.log(JSON.stringify(node));
     let nodeDurationSecs = node.duration.value + node.duration_in_traffic.value;
     return nodeDurationSecs;
 }

@@ -1,6 +1,6 @@
 "use client";
-
-import React, {useEffect, useState} from 'react'
+import Loading from './loading'
+import React, {Suspense, useEffect, useState} from 'react'
 import BusStopCard from '@/components/BusStopCard'
 
 export default function Location() {
@@ -41,18 +41,21 @@ export default function Location() {
         }
         if (location.latitude !== undefined) {
             fetchData();
+            const load = document.querySelector("#loader");
+            load.style.display = 'none';
+
         }
-        console.log(location);
+
     }, [location]);
 
     return (
         <div className="flex flex-wrap gap-5 justify-center">
+            <Loading></Loading>
             {data.map(item => (
                 // eslint-disable-next-line react/jsx-key
-                <a href={`/Bus?BusStop=${item.BusStopCode}`}>
+                <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
                     <BusStopCard key={item.BusStopCode} busStop={item}></BusStopCard>
                 </a>
-
             ))}
         </div>
     );
