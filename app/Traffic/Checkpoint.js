@@ -13,7 +13,7 @@ const getData = async () => {
         "place_id:ChIJqaJe8NYT2jER7IG9avWl3d8" +
         "|place_id:ChIJGzL8pNES2jER1utgJFzjzh8" +
         "|1.442946, 103.768237" +
-        "&key=AIzaSyCCpNOchSwk2BVTfx-y6URCs2D2lJp0AR8" +
+        `&key=${process.env.API_KEY_GOOGLE}` +
         "&heading=340&departure_time=now" +
         "&origins=1.425443, 103.770752" +
         "|place_id:ChIJqaJe8NYT2jER7IG9avWl3d8" +
