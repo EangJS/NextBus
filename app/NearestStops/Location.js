@@ -1,7 +1,10 @@
 "use client";
-import Loading from './loading'
+import {lazy} from 'react';
 import React, {Suspense, useEffect, useState} from 'react'
-import BusStopCard from '@/components/BusStopCard'
+import Skeleton from '@/components/Loaders/skeleton'
+import Loader from "@/components/Loaders/Loader";
+
+const BusStopCard = lazy(() => import('@/components/BusStopCard'));
 
 export default function Location() {
     const [data, setData] = useState([]);
@@ -41,24 +44,29 @@ export default function Location() {
         }
         if (location.latitude !== undefined) {
             fetchData();
-            const load = document.querySelector("#loader");
-            load.style.display = 'none';
+            setTimeout(function () {
+                const loader = document.querySelector("#loader");
+                loader.style.display = 'none';
+            }, 500);
 
         }
 
     }, [location]);
 
     return (
-        <div className="flex flex-wrap gap-5 justify-center">
-            <Loading></Loading>
-            
-            {data.map(item => (
-                // eslint-disable-next-line react/jsx-key
-                <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
-                    <BusStopCard key={item.BusStopCode} busStop={item}></BusStopCard>
-                </a>
-            ))}
-        </div>
+        <>
+            <div className="flex flex-wrap gap-5 justify-center">
+                <Loader></Loader>
+                {data.map(item => (
+                    <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
+                        <Suspense fallback={<Skeleton></Skeleton>}>
+                            <BusStopCard key={item.BusStopCode} busStop={item}></BusStopCard>
+                        </Suspense>
+                    </a>
+                ))}
+            </div>
+        </>
+
     );
 }
 
