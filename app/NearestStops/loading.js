@@ -1,10 +1,17 @@
 import '@/app/styles.css'
+import Skeleton from '@/components/skeleton'
 
 export default function loading() {
     return (
-        <div id="loader" className="loader">
-            <span className="loader-text">loading</span>
-            <span className="load"></span>
+        <div id="loader" className="tweet">
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
         </div>
+
     );
 }

@@ -2,6 +2,7 @@ import React, {Suspense} from "react";
 import BusData from "@/app/Bus/BusData";
 import styles from '@/app/page.module.css'
 import BusStop from "@/app/Bus/BusStop";
+import {redirect} from "next/navigation";
 
 const getData = async (BusStop) => {
     try {
@@ -35,9 +36,15 @@ const getData = async (BusStop) => {
 };
 
 export default async function Page({searchParams}) {
+    if (searchParams.BusStop === "") {
+        redirect('/');
+    }
     const data = await getData(searchParams.BusStop);
     var services = await data.Services;
     console.log(services);
+    if (services === undefined) {
+        redirect('/');
+    }
     return (
         <>
             <div className="pl-5 pt-2 mt-2">
