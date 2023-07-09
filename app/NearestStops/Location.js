@@ -51,6 +51,7 @@ export default function Location() {
     return (
         <div className="flex flex-wrap gap-5 justify-center">
             <Loading></Loading>
+            
             {data.map(item => (
                 // eslint-disable-next-line react/jsx-key
                 <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>

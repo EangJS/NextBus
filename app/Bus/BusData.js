@@ -1,5 +1,5 @@
 import TimeDifference from "@/app/Bus/TimeDifference";
-import React from "react";
+import React, {Suspense} from "react";
 
 export default function BusData({Service}) {
     let busImage = "/single-bus.png";
@@ -14,7 +14,11 @@ export default function BusData({Service}) {
             </div>
             <div className="flex gap-2">
                 <img src={busImage} width={25} height={25}/>
-                <div><TimeDifference givenTime={Service.NextBus.EstimatedArrival}/></div>
+                <div>
+                    <Suspense fallback={<p>Loading</p>}>
+                        <TimeDifference givenTime={Service.NextBus.EstimatedArrival}/>
+                    </Suspense>
+                </div>
             </div>
             <div className="flex gap-2">
                 <img src={busImage} width={25} height={25}/>

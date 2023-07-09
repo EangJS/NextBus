@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import BusData from "@/app/Bus/BusData";
 import styles from '@/app/page.module.css'
 import BusStop from "@/app/Bus/BusStop";
@@ -47,6 +47,7 @@ export default async function Page({searchParams}) {
             <div className={styles.main}>
                 <BusStop busStop={searchParams.BusStop}></BusStop>
                 <div className="flex justify-center gap-5 p-5 flex-wrap bg-[#262429] rounded-2xl m-5">
+
                     {services.map((item, index) => (
                         <BusData key={index}
                                  Service={item}>
