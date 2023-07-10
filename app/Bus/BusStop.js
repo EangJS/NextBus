@@ -21,5 +21,6 @@ export default function BusStop(query) {
             <BusStopCard busStop={busStop}></BusStopCard>
         )
     }
-
 }
+
+export const revalidate = 0;

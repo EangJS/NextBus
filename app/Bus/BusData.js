@@ -39,3 +39,5 @@ export default function BusData({Service}) {
     )
 
 }
+
+export const revalidate = 0;
