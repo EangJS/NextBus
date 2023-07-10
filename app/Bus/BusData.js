@@ -1,3 +1,4 @@
+"use client";
 import TimeDifference from "@/app/Bus/TimeDifference";
 
 export default function BusData({Service}) {

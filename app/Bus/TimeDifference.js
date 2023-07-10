@@ -35,4 +35,3 @@ const TimeDifference = ({givenTime}) => {
 };
 
 export default TimeDifference;
-export const revalidate = 0;

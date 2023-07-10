@@ -23,4 +23,3 @@ export default function BusStop(query) {
     }
 }
 
-export const revalidate = 0;

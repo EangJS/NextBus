@@ -10,12 +10,12 @@ const getData = async (BusStop) => {
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
         myHeaders.append("AccountKey", process.env.API_KEY);
-        myHeaders.append('Cache-Control', 'no-store');
 
         var requestOptions = {
             method: "GET",
             headers: myHeaders,
             redirect: "follow",
+            cache: 'no-store',
         };
         var data;
         await fetch(
@@ -67,4 +67,4 @@ export default async function Page({searchParams}) {
 
 }
 
-export const revalidate = 30;
+export const revalidate = 15;
