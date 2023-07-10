@@ -40,7 +40,7 @@ export default async function Page({searchParams}) {
         redirect('/');
     }
     const data = await getData(searchParams.BusStop);
-    var services = await data.Services;
+    var services = data.Services;
     console.log(services);
     if (services === undefined) {
         redirect('/');
@@ -67,4 +67,4 @@ export default async function Page({searchParams}) {
 
 }
 
-export const revalidate = 15;
+export const revalidate = 30;

@@ -44,10 +44,8 @@ export default function Location() {
         }
         if (location.latitude !== undefined) {
             fetchData();
-            setTimeout(function () {
-                const loader = document.querySelector("#loader");
-                loader.style.display = 'none';
-            }, 500);
+            const loader = document.querySelector("#loader");
+            loader.style.display = 'none';
 
         }
 
@@ -65,6 +63,7 @@ export default function Location() {
                     </a>
                 ))}
             </div>
+
         </>
 
     );
