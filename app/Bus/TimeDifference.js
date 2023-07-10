@@ -19,7 +19,7 @@ const TimeDifference = ({givenTime}) => {
         var formattedTimeDifference = `${minutes} mins`;
 
         if (minutes <= 0) {
-            formattedTimeDifference = "Arriving";
+            //formattedTimeDifference = "Arriving";
         }
 
         return formattedTimeDifference;
@@ -35,3 +35,4 @@ const TimeDifference = ({givenTime}) => {
 };
 
 export default TimeDifference;
+export const revalidate = 0;
