@@ -4,7 +4,7 @@ import TrafficCard from "@/components/TrafficCard";
 const getData = async () => {
     const requestOptions = {
         method: 'GET',
-        redirect: 'follow'
+        redirect: 'follow',
     };
     let data;
 
@@ -18,7 +18,7 @@ const getData = async () => {
         "&origins=1.425443, 103.770752" +
         "|place_id:ChIJqaJe8NYT2jER7IG9avWl3d8" +
         "|1.473028, 103.763149"
-        , requestOptions)
+        , {next: {revalidate: 500}})
         .then(response => response.json())
         .then(result => {
             data = result;
@@ -54,5 +54,3 @@ export default async function FetchTraffic() {
     );
 
 }
-
-export const revalidate = 900;

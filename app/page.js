@@ -9,7 +9,7 @@ export default function Home() {
                 <Location></Location>
             </div>
 
-            <div className="bg-[#212529] rounded-2xl p-5 ml-10 mr-10 flex flex-wrap gap-5">
+            <div className="bg-[#212529] rounded-2xl p-5 ml-10 mr-10 flex flex-wrap justify-center gap-5">
                 <div className="bg-[#243240] rounded-2xl p-5">
                     <h2 className="text-3xl font-bold p-3">Search</h2>
                     <div className="center-flex">
