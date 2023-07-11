@@ -18,27 +18,59 @@ export default function BusData({Service}) {
         busImage3 = "/double-bus.png";
     }
     return (
-        <div className="w-[180px] p-5 rounded-2xl bg-[#3b3d8f]">
-            <div>
+        <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]">
+            <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
+                <span className="material-icons">departure_board</span>
                 {Service.ServiceNo} {Service.Operator}
             </div>
-            <div className="flex gap-2">
-                <img src={busImage} width={25} height={25}/>
+            <div className="flex justify-between gap-3">
                 <div>
-                    <TimeDifference givenTime={Service.NextBus.EstimatedArrival}/>
+                    <div className="flex gap-2 text-sm items-center">
+                        Type: <img className="invert" src={busImage} width={25} height={25}/>
+                    </div>
+                    <div className="flex gap-1 items-center">
+                        <span className="material-icons">groups</span>
+                        {Service.NextBus.Load}
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-lg">
+                    <div><TimeDifference givenTime={Service.NextBus.EstimatedArrival}/></div>
+                    <div className="text-sm">mins</div>
                 </div>
             </div>
-            <div className="flex gap-2">
-                <img src={busImage2} width={25} height={25}/>
-                <div><TimeDifference givenTime={Service.NextBus2.EstimatedArrival}/></div>
+            <hr/>
+            <div className="flex justify-between gap-3">
+                <div>
+                    <div className="flex gap-2 text-sm items-center">
+                        Type: <img className="invert" src={busImage2} width={25} height={25}/>
+                    </div>
+                    <div className="flex gap-1 items-center">
+                        <span className="material-icons">groups</span>
+                        {Service.NextBus2.Load}
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-lg">
+                    <div><TimeDifference givenTime={Service.NextBus2.EstimatedArrival}/></div>
+                    <div className="text-sm">mins</div>
+                </div>
             </div>
-            <div className="flex gap-2">
-                <img src={busImage3} width={25} height={25}/>
-                <div><TimeDifference givenTime={Service.NextBus3.EstimatedArrival}/></div>
+            <hr/>
+            <div className="flex justify-between gap-3">
+                <div>
+                    <div className="flex gap-2 text-sm items-center">
+                        Type: <img className="invert" src={busImage3} width={25} height={25}/>
+                    </div>
+                    <div className="flex gap-1 items-center">
+                        <span className="material-icons">groups</span>
+                        {Service.NextBus3.Load}
+                    </div>
+                </div>
+                <div className="flex flex-col items-center text-lg">
+                    <div><TimeDifference givenTime={Service.NextBus3.EstimatedArrival}/></div>
+                    <div className="text-sm">mins</div>
+                </div>
             </div>
         </div>
     )
 
 }
-
-export const revalidate = 0;

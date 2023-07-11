@@ -41,7 +41,6 @@ export default async function Page({searchParams}) {
     }
     const data = await getData(searchParams.BusStop);
     var services = data.Services;
-    console.log(services);
     if (services === undefined) {
         redirect('/');
     }

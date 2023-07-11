@@ -35,6 +35,8 @@ export default function Location() {
                 if (response.ok) {
                     var JSONdata = await response.json();
                     setData(JSONdata);
+                    const loader = document.querySelector("#loader");
+                    loader.style.display = 'none';
                 } else {
                     console.log('Error unable to fetch');
                 }
@@ -44,8 +46,6 @@ export default function Location() {
         }
         if (location.latitude !== undefined) {
             fetchData();
-            const loader = document.querySelector("#loader");
-            loader.style.display = 'none';
 
         }
 
@@ -58,7 +58,7 @@ export default function Location() {
                 {data.map(item => (
                     <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
                         <Suspense fallback={<Skeleton></Skeleton>}>
-                            <BusStopCard key={item.BusStopCode} busStop={item}></BusStopCard>
+                            <BusStopCard key={item.BusStopCode} busStop={item} distance={item.distance}></BusStopCard>
                         </Suspense>
                     </a>
                 ))}

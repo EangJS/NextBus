@@ -16,12 +16,13 @@ const TimeDifference = ({givenTime}) => {
                 1000 * 60
             )
         );
-        var formattedTimeDifference = `${minutes} mins`;
+        var formattedTimeDifference = `${minutes}`;
 
-        if (minutes <= 0) {
-            //formattedTimeDifference = "Arriving";
+        if (minutes > -2 && minutes <= 0) {
+            formattedTimeDifference = "Arriving";
+        } else if (minutes <= -2) {
+            formattedTimeDifference = "Delayed";
         }
-
         return formattedTimeDifference;
     };
     const timeDifference = calculateTimeDifference();

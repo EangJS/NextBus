@@ -1,20 +1,25 @@
 export default function busStopCard(prop) {
     const busStop = prop.busStop;
+    const dist = prop.distance;
     return (
         <>
             <div
-                className="flex flex-col align-middle justify-center p-3 w-[180px] h-[120px] bg-[#15202B]
+                className="flex flex-col align-middle justify-center p-3 w-[180px] h-[140px] bg-[#15202B]
              rounded-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500
               duration-200">
-                <div>
-                    {busStop.RoadName}
+                <div className="bg-[#004a77] rounded-xl p-1 flex justify-center gap-2 mb-2">
+                    <span className="material-icons">directions_bus</span>{busStop.BusStopCode}
                 </div>
-                <div>
+                <p className="text-xs">
+                    {busStop.RoadName} <br/>
                     {busStop.Description}
-                </div>
-                <div>
-                    {busStop.BusStopCode}
-                </div>
+                </p>
+                <hr/>
+                {dist === undefined ? "" :
+                    <div className="mt-3 gap-1 flex items-center">
+                        <span className="material-icons">location_on</span>
+                        {dist.toFixed(2)} Km
+                    </div>}
             </div>
         </>
 
