@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59fb948b-25c7-4938-86bf-890abf8b64ec" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Rsknhe7RJGwBqo5NSQNewb6cju" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eugen/OneDrive/Documents/MyReact/NextBus&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\eugen\OneDrive\Documents\MyReact\NextBus\components\Loaders" />
+      <recent name="C:\Users\eugen\OneDrive\Documents\MyReact\NextBus\app\NearestStops" />
+      <recent name="C:\Users\eugen\OneDrive\Documents\MyReact\NextBus\app" />
+      <recent name="C:\Users\eugen\OneDrive\Documents\MyReact\NextBus\app\Traffic" />
+      <recent name="C:\Users\eugen\OneDrive\Documents\MyReact\NextBus\app\Bus" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59fb948b-25c7-4938-86bf-890abf8b64ec" name="Changes" comment="" />
+      <created>1688046345021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688046345021</updated>
+      <workItem from="1688046346140" duration="7126000" />
+      <workItem from="1688053779744" duration="363000" />
+      <workItem from="1688135565793" duration="4008000" />
+      <workItem from="1688139609601" duration="2186000" />
+      <workItem from="1688143007826" duration="1187000" />
+      <workItem from="1688144445147" duration="1048000" />
+      <workItem from="1688187272268" duration="17792000" />
+      <workItem from="1688306691318" duration="8421000" />
+      <workItem from="1688316287425" duration="2003000" />
+      <workItem from="1688318320152" duration="16000" />
+      <workItem from="1688390781456" duration="1505000" />
+      <workItem from="1688392324750" duration="7720000" />
+      <workItem from="1688400643394" duration="856000" />
+      <workItem from="1688476778188" duration="9459000" />
+      <workItem from="1688486471396" duration="1285000" />
+      <workItem from="1688804736578" duration="683000" />
+      <workItem from="1688822608217" duration="4271000" />
+      <workItem from="1688881197861" duration="3812000" />
+      <workItem from="1688885047280" duration="62000" />
+      <workItem from="1688885126262" duration="1794000" />
+      <workItem from="1688891967361" duration="6966000" />
+      <workItem from="1688901520686" duration="956000" />
+      <workItem from="1688911702674" duration="2155000" />
+      <workItem from="1688959968965" duration="2486000" />
+      <workItem from="1688964461077" duration="1470000" />
+      <workItem from="1688990405148" duration="1727000" />
+      <workItem from="1688997897387" duration="3710000" />
+      <workItem from="1689067419583" duration="3903000" />
+      <workItem from="1689080265438" duration="123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

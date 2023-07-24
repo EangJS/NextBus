@@ -1,20 +1,11 @@
 import styles from './page.module.css';
 import Location from './NearestStops/Location';
+import Map from './NearestStops/Map';
 
 export default function Home() {
     return (
         <main className={styles.main} style={{gap: '20px'}}>
-            <div className="bg-[#212529] rounded-2xl p-5">
-                <h2 className="text-3xl font-bold p-3 flex items-center gap-2">
-                    <span className="material-icons">map</span>
-                    Nearest Stops
-                </h2>
-                <hr className="mb-5"/>
-                <Location></Location>
-
-
-            </div>
-
+            <Location></Location>
             <div className="bg-[#212529] rounded-2xl p-5 ml-10 mr-10 flex flex-wrap justify-center gap-5">
                 <div className="bg-[#243240] rounded-2xl p-5">
                     <h2 className="text-3xl font-bold p-3">Search</h2>

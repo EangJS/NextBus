@@ -1,7 +1,7 @@
 import data from '@/public/BusStops.json'
 import BusStopCard from "@/components/BusStopCard"
 
-function getBusStop(data, query) {
+export function GetBusStop(data, query) {
     let busStopData = linearSearch(data.value, "BusStopCode", query);
     return busStopData;
 }
@@ -15,7 +15,7 @@ function linearSearch(jsonData, key, target) {
 }
 
 export default function BusStop(query) {
-    let busStop = getBusStop(data, query.busStop);
+    let busStop = GetBusStop(data, query.busStop);
     if (busStop != null) {
         return (
             <BusStopCard busStop={busStop}></BusStopCard>

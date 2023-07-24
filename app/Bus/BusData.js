@@ -1,8 +1,12 @@
 "use client";
 import TimeDifference from "@/app/Bus/TimeDifference";
+import {GetBusStop} from "@/app/Bus/BusStop";
+import data from '@/public/BusStops.json'
 
 export default function BusData({Service}) {
     let busImage = "/single-bus.png";
+    const destinationCode = Service.NextBus.DestinationCode;
+    const destinationData = GetBusStop(data, destinationCode);
     const type = Service.NextBus.Type;
     if (type === "DD") {
         busImage = "/double-bus.png";
@@ -21,7 +25,7 @@ export default function BusData({Service}) {
         <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]">
             <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
                 <span className="material-icons">departure_board</span>
-                {Service.ServiceNo} {Service.Operator}
+                {Service.ServiceNo} {Service.Operator} {destinationData.Description}
             </div>
             <div className="flex justify-between gap-3">
                 <div>

@@ -3,6 +3,7 @@ import {lazy} from 'react';
 import React, {Suspense, useEffect, useState} from 'react'
 import Skeleton from '@/components/Loaders/skeleton'
 import Loader from "@/components/Loaders/Loader";
+import Map from "@/app/NearestStops/Map";
 
 const BusStopCard = lazy(() => import('@/components/BusStopCard'));
 
@@ -52,7 +53,13 @@ export default function Location() {
     }, [location]);
 
     return (
-        <>
+        <div className="bg-[#212529] rounded-2xl p-5">
+            <h2 className="text-3xl font-bold p-3 flex items-center gap-2">
+                <span className="material-icons">map</span>
+                Nearest Stops
+            </h2>
+            <hr className="mb-5"/>
+            <Map Location={location} Stops={data}></Map>
             <div className="flex flex-wrap gap-5 justify-center">
                 <Loader></Loader>
                 {data.map(item => (
@@ -64,7 +71,7 @@ export default function Location() {
                 ))}
             </div>
 
-        </>
+        </div>
 
     );
 }
