@@ -115,7 +115,7 @@ function MyMap({myLocation, myStops}) {
 
     const center = useMemo(() => (
         {lat: myLocation.latitude, lng: myLocation.longitude}
-    ), []);
+    ), [myLocation]);
     console.log(center);
 
     return (
