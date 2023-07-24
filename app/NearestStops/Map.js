@@ -8,7 +8,7 @@ export default function Map({Location, Stops}) {
         googleMapsApiKey: maps,
     });
 
-    if (!isLoaded) return <div>Loading...</div>;
+    if (!isLoaded || !Location.latitude) return <div>Loading...</div>;
     return (
         <MyMap myLocation={Location} myStops={Stops}/>
     );
@@ -116,6 +116,7 @@ function MyMap({myLocation, myStops}) {
     const center = useMemo(() => (
         {lat: myLocation.latitude, lng: myLocation.longitude}
     ), []);
+    console.log(center);
 
     return (
         <GoogleMap zoom={15} options={{styles: nightStyle}}
