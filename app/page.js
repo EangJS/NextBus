@@ -1,6 +1,5 @@
 import styles from './page.module.css';
 import Location from './NearestStops/Location';
-import Map from './NearestStops/Map';
 
 export default function Home() {
     return (

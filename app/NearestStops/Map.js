@@ -1,6 +1,7 @@
 "use client"
-import {useLoadScript, GoogleMap, MarkerF} from '@react-google-maps/api';
-import {useMemo} from 'react';
+import {useLoadScript, GoogleMap, MarkerF, InfoWindow, InfoWindowF} from '@react-google-maps/api';
+import {useCallback, useEffect, useMemo} from 'react';
+import React, {useState} from "react";
 
 export default function Map({Location, Stops}) {
     const maps = 'AIzaSyBoZXDYsJkywBdhn9Hpxf0MK8rhvC_r1PU';
@@ -8,7 +9,7 @@ export default function Map({Location, Stops}) {
         googleMapsApiKey: maps,
     });
 
-    if (!isLoaded || !Location.latitude) return <div>Loading...</div>;
+    if (!isLoaded || !Location.latitude || !Location.longitude || !Stops) return <></>;
     return (
         <MyMap myLocation={Location} myStops={Stops}/>
     );
@@ -18,19 +19,23 @@ const handleMarkerClick = (markerId) => {
 };
 
 function MyMap({myLocation, myStops}) {
-    var markers = [];
+    const [markers, setMarkers] = useState([]);
 
-    for (let i = 0; i < myStops.length; i++) {
-        const marker = {
-            id: myStops[i].BusStopCode,
-            position: {
-                lat: myStops[i].Latitude,
-                lng: myStops[i].Longitude
-            },
-            title: myStops[i].BusStopCode
-        }
-        markers.push(marker);
-    }
+    useEffect(() => {
+        const newMarkers = myStops.map((stop) => (
+            {
+                id: stop.BusStopCode,
+                position: {
+                    lat: stop.Latitude,
+                    lng: stop.Longitude,
+                },
+                icon: "busIcon.png",
+                title: stop.Description,
+            }
+        ));
+        setMarkers(newMarkers);
+
+    }, [myStops]);
 
     const nightStyle = [
         {elementType: "geometry", stylers: [{color: "#242f3e"}]},
@@ -116,7 +121,14 @@ function MyMap({myLocation, myStops}) {
     const center = useMemo(() => (
         {lat: myLocation.latitude, lng: myLocation.longitude}
     ), [myLocation]);
-    console.log(center);
+
+    const [activeMarker, setActiveMarker] = useState(null);
+    const handleMarkerClick = (marker) => {
+        if (marker === activeMarker) {
+            return;
+        }
+        setActiveMarker(marker);
+    };
 
     return (
         <GoogleMap zoom={15} options={{styles: nightStyle}}
@@ -125,8 +137,18 @@ function MyMap({myLocation, myStops}) {
                 <MarkerF
                     key={marker.id}
                     position={marker.position}
+                    icon={marker.icon}
                     onClick={() => handleMarkerClick(marker.id)}
-                />
+                >
+                    {activeMarker === marker.id ? (
+                        <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
+                            <a className="text-[#030712] flex flex-col gap-1" href={`/Bus?BusStop=${marker.id}`}>
+                                <p className="font-bold">{marker.title}</p>
+                                <p className="text-[#06b6d4]">{marker.id}</p>
+                            </a>
+                        </InfoWindowF>
+                    ) : null}
+                </MarkerF>
             ))}
         </GoogleMap>
     );
