@@ -1,5 +1,5 @@
 "use client"
-import {useLoadScript, GoogleMap, MarkerF, InfoWindow, InfoWindowF} from '@react-google-maps/api';
+import {useLoadScript, GoogleMap, MarkerF, InfoWindow, InfoWindowF, CircleF} from '@react-google-maps/api';
 import {useCallback, useEffect, useMemo} from 'react';
 import React, {useState} from "react";
 
@@ -131,7 +131,7 @@ function MyMap({myLocation, myStops}) {
     };
 
     return (
-        <GoogleMap zoom={15} options={{styles: nightStyle}}
+        <GoogleMap zoom={15} options={{styles: nightStyle,disableDefaultUI: true}}
                    center={center} mapContainerClassName="map-container">
             {markers.map((marker) => (
                 <MarkerF
@@ -150,6 +150,24 @@ function MyMap({myLocation, myStops}) {
                     ) : null}
                 </MarkerF>
             ))}
+            <CircleF
+                center={center}
+                radius={500}
+                options={{strokeColor: "#BB86FC",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#3770B3",
+                    fillOpacity: 0.35,}}
+            />
+            <CircleF
+                center={center}
+                radius={20}
+                options={{strokeColor: "#cbc3e3",
+                    strokeOpacity: 1,
+                    strokeWeight: 0,
+                    fillColor: "#9146ff",
+                    fillOpacity: 1,}}
+            />
         </GoogleMap>
     );
 }

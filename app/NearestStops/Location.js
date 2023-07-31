@@ -60,6 +60,7 @@ export default function Location() {
             </h2>
             <hr className="mb-5"/>
             <Map Location={location} Stops={data}></Map>
+
             <div className="flex flex-wrap gap-5 justify-center">
                 <Loader></Loader>
                 {data.map(item => (
