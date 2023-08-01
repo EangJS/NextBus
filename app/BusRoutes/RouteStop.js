@@ -5,7 +5,7 @@ export default function RouteStop(prop){
             <div className="flex align-middle flex-col gap-1 justify-center p-3 w-fit h-fit bg-[#381e72]
              rounded-2xl">
                 <div className="font-bold">Distance {stopData.Distance} Km</div>
-                <div className="flex align-middle gap-3 justify-center p-3 w-fit h-fit bg-[#4f378a]
+                <div className="flex flex-col align-middle gap-3 justify-center p-3 w-fit h-fit bg-[#4f378a]
              rounded-2xl">
                     <div className="flex flex-col">
                         <h2 className="font-bold">Weekday</h2>

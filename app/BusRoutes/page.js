@@ -22,23 +22,7 @@ export default function Routes({searchParams}){
 
     return (
         <div>
-            <div className="fixed">
-                <div className="m-3 p-2 w-fit bg-[#232478] rounded-xl">
-                    <a href={"/"} className="flex items-center justify-center ">
-                        <span className="material-icons">home</span>
-                    </a>
-                </div>
-                <div className="m-3 p-2 w-fit bg-[#232478] rounded-xl">
-                    <a href={`/BusRoutes?BusNumber=${searchParams.BusNumber}&Direction=${reverseDirection}`}
-                       className="flex items-center justify-center">
-                        <span className="material-icons">swap_horiz</span>
-                    </a>
-                </div>
-                <TopScroll></TopScroll>
-
-            </div>
-
-
+            <TopScroll searchParams={searchParams} direction={reverseDirection}></TopScroll>
             <div className="flex flex-col items-center pt-10">
                 <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
                     <span className="material-icons">directions_bus_filled</span>
@@ -48,8 +32,8 @@ export default function Routes({searchParams}){
                 {busRoute.map(route =>
                     route.Direction == direction ?
                         <div className="flex p-5 gap-3 justify-center items-stretch border-b-2"
-                             key={route.BusStopCode}>
-                            <a className="w-[200px]" name={route.BusStopCode} href={`/Bus?BusStop=${route.BusStopCode}`}>
+                             key={route.StopSequence}>
+                            <a className="w-[150px]" name={route.BusStopCode} href={`/Bus?BusStop=${route.BusStopCode}`}>
                                 <BusStop busStop={route.BusStopCode}></BusStop>
                             </a>
                             <RouteStop StopData={route}></RouteStop>
