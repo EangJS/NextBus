@@ -3,7 +3,7 @@ import TimeDifference from "@/app/Bus/TimeDifference";
 import {GetBusStop} from "@/app/Bus/BusStop";
 import data from '@/public/BusStops.json'
 
-export default function BusData({Service}) {
+export default function BusData({Service,BusStopCode}) {
     let busImage = "/single-bus.png";
     const destinationCode = Service.NextBus.DestinationCode;
     const destinationData = GetBusStop(data, destinationCode);
@@ -22,8 +22,10 @@ export default function BusData({Service}) {
         busImage3 = "/double-bus.png";
     }
     return (
-        <a href={"/BusRoutes?BusNumber="+Service.ServiceNo}>
-        <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]">
+        <a href={"/BusRoutes?BusNumber="+Service.ServiceNo+"#"+BusStopCode}>
+        <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]
+        transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:bg-indigo-500
+              duration-200">
             <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
                 <span className="material-icons">departure_board</span>
                 {Service.ServiceNo} {Service.Operator} {destinationData.Description}

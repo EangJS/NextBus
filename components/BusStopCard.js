@@ -4,8 +4,8 @@ export default function busStopCard(prop) {
     return (
         <>
             <div
-                className="flex flex-col align-middle justify-center p-3 w-[180px] h-[140px] bg-[#15202B]
-             rounded-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500
+                className="flex flex-col align-middle justify-center p-3 h-full bg-[#15202B]
+             rounded-2xl transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:bg-indigo-500
               duration-200">
                 <div className="bg-[#004a77] rounded-xl p-1 flex justify-center gap-2 mb-2">
                     <span className="material-icons">directions_bus</span>{busStop.BusStopCode}

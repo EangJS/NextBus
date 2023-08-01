@@ -46,17 +46,22 @@ export default async function Page({searchParams}) {
     }
     return (
         <>
-            <div className="pl-5 pt-2 mt-2">
-                <a className="bg-[#3a383e] col-[#cfbcf1] p-2 rounded-2xl" href="/">Back</a>
+            <div className="m-3 p-2 w-fit bg-[#232478] rounded-xl">
+                <a href={"/"} className="flex items-center justify-center ">
+                    <span className="material-icons">home</span>
+                </a>
             </div>
 
             <div className={styles.main}>
-                <BusStop busStop={searchParams.BusStop}></BusStop>
+                <div className="w-[180px] h-[140px]">
+                    <BusStop busStop={searchParams.BusStop}></BusStop>
+                </div>
                 <div className="flex justify-center gap-5 p-5 flex-wrap bg-[#262429] rounded-2xl m-5">
 
                     {services.map((item, index) => (
                         <BusData key={index}
-                                 Service={item}>
+                                 Service={item}
+                                 BusStopCode={searchParams.BusStop}>
                         </BusData>
                     ))}
                 </div>

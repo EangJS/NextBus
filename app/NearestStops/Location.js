@@ -64,7 +64,8 @@ export default function Location() {
             <div className="flex flex-wrap gap-5 justify-center">
                 <Loader></Loader>
                 {data.map(item => (
-                    <a key={item.BusStopCode} href={`/Bus?BusStop=${item.BusStopCode}`}>
+
+                    <a key={item.BusStopCode} className="w-[180px] h-[140px]"  href={`/Bus?BusStop=${item.BusStopCode}`}>
                         <Suspense fallback={<Skeleton></Skeleton>}>
                             <BusStopCard key={item.BusStopCode} busStop={item} distance={item.distance}></BusStopCard>
                         </Suspense>
