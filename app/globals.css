@@ -5,6 +5,37 @@
 html{
     scroll-behavior: smooth;
 }
+
+
+meter::-webkit-meter-bar {
+    height: .5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    background-image: none;
+}
+
+meter::-webkit-meter-optimum-value {
+    border-radius: 5px;
+    background-color: lime;
+    background-image: none;
+    transition: all .15s ease;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    border-radius: 5px;
+    background-color: orange;
+    background-image: none;
+    transition: all .15s ease;
+}
+
+meter::-webkit-meter-even-less-good-value{
+    border-radius: 5px;
+    background-color: red;
+    background-image: none;
+    transition: all .15s ease;
+}
+
 :root {
     --max-width: 1100px;
     --border-radius: 12px;

@@ -19,7 +19,7 @@ function getLoad(stringLoad){
             load = 0;
             break;
     }
-    return load;
+    return 0.9;
 
 }
 export default function BusData({Service,BusStopCode}) {
@@ -45,7 +45,6 @@ export default function BusData({Service,BusStopCode}) {
 
     return (
         <>
-            <meter value={20}>20</meter>
         <a href={"/BusRoutes?BusNumber="+Service.ServiceNo+"#"+BusStopCode}>
         <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]
         transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:bg-indigo-500
@@ -59,10 +58,10 @@ export default function BusData({Service,BusStopCode}) {
                     <div className="flex gap-2 text-sm items-center">
                         Type: <img className="invert" src={busImage} width={25} height={25}/>
                     </div>
-                    <div className="flex gap-1 items-center">
+                    <div className="flex gap-1 items-center my-box">
                         <span className="material-icons">groups</span>
 
-                        <meter id="meter" low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus.Load)}></meter>
+                        <meter id="meter" low=".4" optimum=".2" high=".8" className="w-8 meter" value={getLoad(Service.NextBus.Load)}></meter>
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-lg">
