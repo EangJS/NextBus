@@ -60,7 +60,7 @@ export default function BusData({Service,BusStopCode}) {
                     <div className="flex gap-1 items-center">
                         <span className="material-icons">groups</span>
 
-                        <meter min={0.0} max={1.0} low={0.4} optimum={0.2} high={0.8} className="w-8" value={getLoad(Service.NextBus.Load)}></meter>
+                        <meter id="meter" low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus.Load)}></meter>
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-lg">
@@ -78,7 +78,7 @@ export default function BusData({Service,BusStopCode}) {
                             </div>
                             <div className="flex gap-1 items-center">
                                 <span className="material-icons">groups</span>
-                                <meter min={0.0} max={1.0} low={0.4} optimum={0.2} high={0.8} className="w-8" value={getLoad(Service.NextBus2.Load)}></meter>
+                                <meter low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus2.Load)}></meter>
                             </div>
                         </div>
                         <div className="flex flex-col items-center text-lg">
@@ -97,7 +97,7 @@ export default function BusData({Service,BusStopCode}) {
                         </div>
                         <div className="flex gap-1 items-center">
                             <span className="material-icons">groups</span>
-                            <meter min={0.0} max={1.0} low={0.4} optimum={0.2} high={0.8} className="w-8" value={getLoad(Service.NextBus3.Load)}></meter>
+                            <meter low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus3.Load)}></meter>
                         </div>
                     </div>
                     <div className="flex flex-col items-center text-lg">
