@@ -16,21 +16,21 @@ const TimeDifference = ({givenTime}) => {
                 1000 * 60
             )
         );
+
         var formattedTimeDifference = `${minutes}`;
 
-        if (minutes > -2 && minutes <= 0) {
+        if (minutes <= 0) {
             formattedTimeDifference = "Arriving";
-        } else if (minutes <= -2) {
-            formattedTimeDifference = "Delayed";
         }
         return formattedTimeDifference;
     };
     const timeDifference = calculateTimeDifference();
 
     return (
-        <>
-            {timeDifference}
-        </>
+        <div className="flex flex-col justify-center items-center text-lg">
+            <div className="font-bold">{timeDifference}</div>
+            {timeDifference !== "Arriving" && <div className="text-sm">mins</div>}
+        </div>
 
     );
 };

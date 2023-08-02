@@ -32,7 +32,7 @@ function sortStops(toSort, querylat, querylong) {
 }
 
 function getNearestStops(sortedStops) {
-    return sortedStops.slice(0, 10);
+    return sortedStops.slice(0, 20);
 }
 
 function success(position) {

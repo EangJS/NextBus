@@ -46,12 +46,21 @@ export default function BusData({Service,BusStopCode}) {
     return (
         <>
         <a href={"/BusRoutes?BusNumber="+Service.ServiceNo+"#"+BusStopCode}>
-        <div className="flex flex-col gap-1 text-[#e1e0ff] w-[200px] p-5 rounded-2xl bg-[#3b3d8f]
+        <div className="flex flex-col gap-1 text-[#e1e0ff] w-[220px] p-5 rounded-2xl bg-[#3b3d8f]
         transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:bg-indigo-500
               duration-200">
             <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
                 <span className="material-icons">departure_board</span>
-                {Service.ServiceNo} {Service.Operator} <br/> {destinationData.Description}
+                <div>
+                    {Service.ServiceNo} {Service.Operator}
+                </div>
+                <span className="material-icons" style={{display:"flex",alignItems:"center"}}>
+                        keyboard_double_arrow_right
+                    </span>
+                <div className="text-center">
+                    {destinationData.Description.replace("Int","")}
+                </div>
+
             </div>
             <div className="flex justify-between gap-3">
                 <div>
@@ -64,10 +73,7 @@ export default function BusData({Service,BusStopCode}) {
                         <meter id="meter" low=".4" optimum=".2" high=".8" className="w-8 meter" value={getLoad(Service.NextBus.Load)}></meter>
                     </div>
                 </div>
-                <div className="flex flex-col items-center text-lg">
-                    <div><TimeDifference givenTime={Service.NextBus.EstimatedArrival}/></div>
-                    <div className="text-sm">mins</div>
-                </div>
+                <TimeDifference givenTime={Service.NextBus.EstimatedArrival}/>
             </div>
             <hr/>
             {Service.NextBus2.EstimatedArrival &&
@@ -82,10 +88,7 @@ export default function BusData({Service,BusStopCode}) {
                                 <meter low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus2.Load)}></meter>
                             </div>
                         </div>
-                        <div className="flex flex-col items-center text-lg">
-                            <div><TimeDifference givenTime={Service.NextBus2.EstimatedArrival}/></div>
-                            <div className="text-sm">mins</div>
-                        </div>
+                        <TimeDifference givenTime={Service.NextBus2.EstimatedArrival}/>
                     </div>
                     <hr/>
                 </>
@@ -101,10 +104,8 @@ export default function BusData({Service,BusStopCode}) {
                             <meter low=".4" optimum=".2" high=".8" className="w-8" value={getLoad(Service.NextBus3.Load)}></meter>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center text-lg">
-                        <div><TimeDifference givenTime={Service.NextBus3.EstimatedArrival}/></div>
-                        <div className="text-sm">mins</div>
-                    </div>
+                    <TimeDifference givenTime={Service.NextBus3.EstimatedArrival}/>
+
                 </div>
             }
         </div>

@@ -6,9 +6,15 @@ import {redirect} from "next/navigation";
 import HomeButton from "@/components/Navigator/HomeButton";
 import BackButton from "@/components/Navigator/BackButton";
 
+/**
+ * Makes a http request to the LTA Datamall api to retrieve the bus arrival timings for the
+ * given bus stop.
+ * This request must be done in the server side code to prevent revealing of API Key.
+ * @param BusStop
+ * @returns {Promise<*>}
+ */
 const getData = async (BusStop) => {
     try {
-
         var myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
         myHeaders.append("AccountKey", process.env.API_KEY);
