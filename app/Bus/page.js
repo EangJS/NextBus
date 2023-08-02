@@ -3,6 +3,8 @@ import BusData from "@/app/Bus/BusData";
 import styles from '@/app/page.module.css'
 import BusStop from "@/app/Bus/BusStop";
 import {redirect} from "next/navigation";
+import HomeButton from "@/components/Navigator/HomeButton";
+import BackButton from "@/components/Navigator/BackButton";
 
 const getData = async (BusStop) => {
     try {
@@ -46,10 +48,9 @@ export default async function Page({searchParams}) {
     }
     return (
         <>
-            <div className="m-3 p-2 w-fit bg-[#232478] rounded-xl">
-                <a href={"/"} className="flex items-center justify-center ">
-                    <span className="material-icons">home</span>
-                </a>
+            <div className="fixed bottom-2">
+                <HomeButton></HomeButton>
+                <BackButton></BackButton>
             </div>
 
             <div className={styles.main}>

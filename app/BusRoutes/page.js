@@ -2,7 +2,7 @@ import routes from '@/public/BusRoutes.json'
 import BusStop from "@/app/Bus/BusStop";
 import {redirect} from "next/navigation";
 import RouteStop from "@/app/BusRoutes/RouteStop";
-import TopScroll from "@/components/TopScroll";
+import RouteMenuNavigator from "@/components/RouteMenuNavigator";
 function linearSearch(jsonData,target) {
     return jsonData[target];
 }
@@ -22,7 +22,7 @@ export default function Routes({searchParams}){
 
     return (
         <div>
-            <TopScroll searchParams={searchParams} direction={reverseDirection}></TopScroll>
+            <RouteMenuNavigator searchParams={searchParams} direction={reverseDirection}></RouteMenuNavigator>
             <div className="flex flex-col items-center pt-10">
                 <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
                     <span className="material-icons">directions_bus_filled</span>
@@ -40,7 +40,7 @@ export default function Routes({searchParams}){
                         </div>
 
                         : "")}
-                <p>End</p>
+                <a name={"end"}>End</a>
             </div>
         </div>
 
