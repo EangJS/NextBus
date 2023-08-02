@@ -49,16 +49,21 @@ export default function BusData({Service,BusStopCode}) {
         <div className="flex flex-col gap-1 text-[#e1e0ff] w-[220px] p-5 rounded-2xl bg-[#3b3d8f]
         transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 hover:bg-indigo-500
               duration-200">
-            <div className="flex gap-2 items-center bg-[#232478] rounded-xl p-2 mb-2">
-                <span className="material-icons">departure_board</span>
-                <div>
-                    {Service.ServiceNo} {Service.Operator}
+            <div className="flex gap-2 justify-between items-center bg-[#232478] rounded-xl p-2 mb-2">
+                <div className="text-center">
+                    <p>
+                        <span className="material-icons">departure_board</span>
+                        {Service.ServiceNo}
+                    </p>
+                     {Service.Operator}
                 </div>
-                <span className="material-icons" style={{display:"flex",alignItems:"center"}}>
+                <span className="material-icons" style={{display:"flex",alignItems:"center",fontSize:"12px"}}>
                         keyboard_double_arrow_right
                     </span>
-                <div className="text-center">
-                    {destinationData.Description.replace("Int","")}
+                <div className="text-center text-sm">
+                    <p className="break-words max-w-[90px]">
+                        {destinationData.Description.replace("Int","")}
+                    </p>
                 </div>
 
             </div>
