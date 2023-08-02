@@ -19,7 +19,7 @@ function getLoad(stringLoad){
             load = 0;
             break;
     }
-    return 0.9;
+    return load;
 
 }
 export default function BusData({Service,BusStopCode}) {
