@@ -2,7 +2,7 @@
 import TimeDifference from "@/app/Bus/TimeDifference";
 import { GetBusStop } from "@/app/Bus/BusStop";
 import data from "@/public/BusStops.json";
-import LoadMeter from "./loadMeter";
+import LoadMeter from "@/app/Bus/LoadMeter";
 
 export default function BusData({ Service, BusStopCode }) {
     let busImage = "/single-bus.png";
